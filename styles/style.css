@@ -85,17 +85,15 @@ ul {
 /* --- ОБЛОЖКА (COVER) --- */
 .cover {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 757px; /* Высота из Figma */
-  padding: 50px; /* Отступы внутри 50px */
+  padding: 0; /* Убираем отступы, чтобы координаты совпадали */
   background-image: url('../images/cover.jpg');
   background-size: cover;
   background-position: center;
   color: #fff;
 }
 
+/* Полупрозрачный оверлей поверх картинки */
 .overlay {
   position: absolute;
   inset: 0;
@@ -103,46 +101,63 @@ ul {
   z-index: 1;
 }
 
-.cover__title, 
-.cover__description {
-  position: relative;
+/* --- ЗАГОЛОВОК ОБЛОЖКИ (ТОЧНО ПО FIGMA) --- */
+.cover__title {
+  position: absolute;
+  width: 1000px;
+  height: 385px;
+  left: 50px;
+  top: 165px;
+  margin: 0;
   z-index: 2;
 }
 
-.cover__title {
-  width: 1000px;
-  margin: 0 auto;
-  padding-top: 115px; /* В Figma top: 165px, минус padding обложки 50px = 115px */
+/* Общие стили для всех слов заголовка */
+.cover__title span {
+  position: absolute;
   font-family: 'Raleway', sans-serif;
   font-size: 100px;
   font-weight: 700;
-  text-transform: uppercase;
+  line-height: 115%;
   letter-spacing: 0.3em;
-  line-height: 1.15;
+  text-transform: uppercase;
+  color: #fff;
 }
 
-.aligned-text {
-  display: block;
-}
-
+/* Слово "ОНО" */
 .aligned-text_left {
-  text-align: left;
+  left: 0;
+  top: 0;
+  width: 286px;
 }
 
+/* Слово "ТЕБЕ" */
 .aligned-text_center {
+  left: 330px; /* Вычислено из Figma */
+  top: 135px;
+  width: 339px;
   text-align: center;
 }
 
+/* Слово "НАДО" */
 .aligned-text_right {
+  left: 613px; /* Вычислено из Figma */
+  top: 270px;
+  width: 387px;
   text-align: right;
-  /* Убираем лишний отступ у последней буквы, чтобы текст прижался к правому краю */
-  margin-right: -0.3em; 
 }
 
+/* --- ОПИСАНИЕ И КНОПКА (ТОЧНО ПО FIGMA) --- */
 .cover__description {
+  position: absolute;
+  width: 1000px;
+  height: 51px;
+  left: 50px;
+  top: 656px; /* Координата из Figma */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 }
 
 .cover__description-text {
@@ -155,6 +170,7 @@ ul {
   word-spacing: 15px;
 }
 
+/* Кнопка "Сделать ставку" */
 .bet-button {
   width: 256px;
   height: 51px;
@@ -268,7 +284,7 @@ ul {
   justify-content: flex-start;
   /* В Figma logo-column left: 47px, top: 35px (относительно about) */
   padding-left: 47px;
-  padding-top: 35px; 
+  padding-top: 35px;
 }
 
 /* Правая колонка (текст) */
@@ -277,7 +293,7 @@ ul {
   flex-direction: column;
   align-items: flex-start;
   /* В Figma about-column top: 133px. Заголовок на top: 3px (133+3=136px) */
-  padding-top: 133px; 
+  padding-top: 133px;
 }
 
 .about__logo {
@@ -298,7 +314,7 @@ ul {
 
 .about__title {
   margin-top: 3px; /* Из Figma top: 3px */
-  margin-bottom: 47px;
+  margin-bottom: 100px;
   font-family: 'Raleway', sans-serif;
   font-size: 40px;
   font-weight: 700;
@@ -333,7 +349,7 @@ ul {
 }
 
 .footer__address {
-  margin-top: 95px; /* В Figma top: 95px */
+  margin-top: 1px; /* В Figma top: 95px */
   font-style: normal;
   display: flex;
   flex-direction: column;
