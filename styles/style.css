@@ -1,5 +1,4 @@
-/* место для вашего кода */
-/* Сброс браузерных стилей для ссылок и списков */
+/* --- СБРОС И БАЗА --- */
 a {
   text-decoration: none;
   color: inherit;
@@ -14,26 +13,24 @@ ul {
 /* --- ШАПКА --- */
 .header {
   display: grid;
-  /* Делим шапку на 3 колонки: меню (1fr), логотип (min-content), адрес (1fr) */
+  /* В Figma: контакты (right: 50), лого по центру, меню (left: 50) */
   grid-template-columns: 1fr min-content 1fr;
   align-items: center;
   height: 293px;
-  padding: 0 50px; /* Отступы сверху/снизу и по бокам, как в макете */
+  padding: 0 50px; /* Отступы по бокам 50px из Figma */
 }
 
-/* Меню (левая часть) */
 .header__menu {
-  justify-self: start; /* Прижимаем меню к левому краю */
+  justify-self: start; /* Меню влево */
 }
 
 .header__links-list {
   display: flex;
-  gap: 30px; /* Расстояние между пунктами меню */
+  gap: 20px; /* Отступ между пунктами (подбираем по макету) */
 }
 
 .header__links-list-item {
-  /* Маркер-кружок между пунктами меню (кроме первого) */
-  list-style-type: circle;
+  list-style-type: circle; /* Кружочки из макета */
   margin-left: 20px;
 }
 
@@ -43,90 +40,89 @@ ul {
 }
 
 .header__link {
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
-  text-transform: lowercase; /* или uppercase, смотри макет */
+  font-weight: 400;
+  line-height: 21px;
+  color: #000;
 }
 
 .header__link_active {
-  text-decoration: underline; /* или none, если активная ссылка без подчеркивания */
+  text-decoration: underline;
 }
 
-/* Логотип (центр) */
 .header__logo {
   display: block;
-  width: 150px; /* Подгони под макет */
+  width: 148px; /* Размер из Figma */
+  height: 105px;
 }
 
 .header__logo-image {
   width: 100%;
-  display: block;
+  height: 100%;
+  object-fit: contain;
 }
 
-/* Адрес (правая часть) */
 .header__address {
-  justify-self: end; /* Прижимаем адрес к правому краю */
-  max-width: 200px; /* Ограничиваем ширину */
+  justify-self: end; /* Адрес вправо */
   font-style: normal;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Чтобы ссылки не растягивались на всю ширину */
+  align-items: flex-start;
   gap: 5px;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
-  font-weight: normal;
+  font-weight: 400;
+  line-height: 24px;
+  max-width: 240px; /* Из Figma: contacts width */
 }
 
 .address__link {
-  font-weight: bold;
+  text-decoration: underline; /* В макете номера подчеркнуты */
+  text-decoration-skip-ink: none;
 }
 
-/* --- ОБЛОЖКА (СЕКЦИЯ COVER) --- */
+/* --- ОБЛОЖКА (COVER) --- */
 .cover {
-  position: relative; /* Нужно, чтобы оверлей позиционировался относительно этой секции */
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Раздвигаем заголовок и описание по краям */
-  min-height: 757px; /* Высота обложки из макета. Можем использовать min-height, чтобы блок мог расти */
-  padding: 50px; /* Отступы внутри обложки */
-  
-  /* Подключаем фоновую картинку. Если путь не сработает, проверь папку images */
+  justify-content: space-between;
+  height: 757px; /* Высота из Figma */
+  padding: 50px; /* Отступы внутри 50px */
   background-image: url('../images/cover.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff; /* Весь текст на обложке белый */
+  color: #fff;
 }
 
-/* Полупрозрачный темный оверлей поверх картинки */
 .overlay {
   position: absolute;
-  inset: 0; /* Растягиваем на весь родительский блок (top:0, right:0, bottom:0, left:0) */
-  background-color: rgba(0, 0, 0, 0.6); /* Черный цвет с прозрачностью 60% */
-  z-index: 1; /* Оверлей должен быть поверх картинки */
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
-/* Чтобы текст не спрятался под оверлеем, поднимаем его z-index */
 .cover__title, 
 .cover__description {
   position: relative;
   z-index: 2;
 }
 
-/* Заголовок "Оно тебе надо" */
 .cover__title {
   width: 1000px;
-  margin-top: 115px; /* Сдвигаем заголовок чуть вниз */
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 100px; /* Огромный размер шрифта из макета */
+  margin: 0 auto;
+  padding-top: 115px; /* В Figma top: 165px, минус padding обложки 50px = 115px */
+  font-family: 'Raleway', sans-serif;
+  font-size: 100px;
   font-weight: 700;
-  text-transform: uppercase; /* Все буквы заглавные */
-  letter-spacing: 0.3em; /* Расстояние между буквами */
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
   line-height: 1.15;
 }
 
-/* Классы для выравнивания строк заголовка */
 .aligned-text {
-  display: block; /* Каждое слово на новой строке */
+  display: block;
 }
 
 .aligned-text_left {
@@ -135,110 +131,93 @@ ul {
 
 .aligned-text_center {
   text-align: center;
-  /* Если нужно сместить чуть левее/правее, можно использовать padding или margin */
 }
 
 .aligned-text_right {
   text-align: right;
+  /* Убираем лишний отступ у последней буквы, чтобы текст прижался к правому краю */
+  margin-right: -0.3em; 
 }
 
-/* Описание (подзаголовок и кнопка) */
 .cover__description {
   display: flex;
-  justify-content: space-between; /* Текст слева, кнопка справа */
+  justify-content: space-between;
   align-items: center;
-  padding-bottom: 50px;
 }
 
 .cover__description-text {
   margin: 0;
+  font-family: 'Raleway', sans-serif;
   font-size: 22px;
-  text-transform: uppercase;
   font-weight: 400;
-  word-spacing: 15px; /* Расстояние между словами */
+  line-height: 28px;
+  text-transform: uppercase;
+  word-spacing: 15px;
 }
 
-/* Кнопка "Сделать ставку" */
 .bet-button {
   width: 256px;
   height: 51px;
   padding: 0;
-  border: 1px solid #fff; /* Белая рамка */
+  border: 1px solid #fff;
   color: #fff;
+  font-family: 'Raleway', sans-serif;
   font-size: 22px;
-  text-transform: uppercase;
   font-weight: 400;
-  background-color: transparent; /* Прозрачный фон */
+  line-height: 26px;
+  text-transform: uppercase;
+  background-color: transparent;
   cursor: pointer;
-}
-
-.bet-button:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Легкий эффект при наведении */
 }
 
 /* --- СЕКЦИЯ ЛОТЫ --- */
 .lots {
   width: 1052px;
-  margin: 180px auto 120px;
-  padding: 0; /* Отступы вокруг всей секции */
+  margin: 180px auto 120px; /* 180px от обложки (1230 - 293 - 757), 120px до about */
+  padding: 0;
 }
 
 .lots__heading {
-  margin-top: 0;
-  margin-bottom: 27px;
+  margin: 0 0 27px 40px; /* В Figma title left: 40px, top: 0 */
+  font-family: 'Raleway', sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 47px;
   text-transform: uppercase;
 }
 
-/* Сетка для карточек */
 .lots__card-list {
   display: flex;
-  flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
-  gap: 25px; /* Расстояние между карточками */
+  gap: 25px; /* Расстояние между карточками (334*3 + 25*2 = 1052) */
   margin-bottom: 30px;
 }
 
 .lots__card-list-item {
-  /* Рассчитываем ширину так, чтобы влезло 3 карточки (вычитаем gap) */
-  width: 334px;
-  min-height: 596px; /* Минимальная высота карточки */
+  width: 334px; /* Из Figma */
+  height: 596px; /* Из Figma */
 }
 
-/* Ссылка внутри карточки должна занимать всю высоту */
 .card-link {
   display: block;
   height: 100%;
 }
 
-/* Сама карточка */
 .card {
-  position: relative; /* Чтобы оверлей позиционировался внутри карточки */
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Текст разъезжается по краям */
+  justify-content: space-between;
   height: 100%;
-  padding: 48px 40px;
+  padding: 48px 40px; /* Отступы внутри карточки из Figma */
   color: #fff;
   background-size: cover;
   background-position: center;
 }
 
-/* Подключаем фоны для каждой из трех карточек */
-.card_type_film {
-  background-image: url('../images/card-lot-01.jpg');
-}
+.card_type_film { background-image: url('../images/card-lot-01.jpg'); }
+.card_type_book { background-image: url('../images/card-lot-02.jpg'); }
+.card_type_picture { background-image: url('../images/card-lot-03.jpg'); }
 
-.card_type_book {
-  background-image: url('../images/card-lot-02.jpg');
-}
-
-.card_type_picture {
-  background-image: url('../images/card-lot-03.jpg');
-}
-
-/* Чтобы текст не прятался под оверлеем */
 .card__title,
 .card__text {
   position: relative;
@@ -247,139 +226,140 @@ ul {
 
 .card__title {
   margin: 0;
+  font-family: 'Raleway', sans-serif;
   font-size: 22px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 120%;
   text-transform: uppercase;
-  text-decoration: underline; /* Как в макете, заголовки подчеркнуты */
+  text-decoration: underline;
 }
 
 .card__text {
   margin: 0;
+  font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 120%;
 }
 
-/* Ссылка "Посмотреть больше" */
 .lots__look-more-link {
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 40px; /* В Figma left: 40px */
+  font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 23px;
   text-decoration: underline;
 }
 
-/* --- СЕКЦИЯ ОБ АУКЦИОНЕ --- */
+/* --- СЕКЦИЯ ОБ АУКЦИОНЕ (ИСПРАВЛЕНО ПО ЦИФРАМ) --- */
 .about {
   display: grid;
-  /* Левая колонка фиксированная (как карточка), правая занимает всё остальное */
-  grid-template-columns: 312px 1fr;
-  /* gap: 72px; */
-  width: 1052px;           /* Точная ширина из макета */
-  margin: 0 auto 180px;    /* Центрируем и даем отступ снизу 180px до подвала */
-  padding: 0; /* Большие отступы сверху и снизу */
+  /* Левая колонка 359px (как left: 359px в Figma для about-column), правая 693px */
+  grid-template-columns: 359px 693px;
+  width: 1052px;
+  margin: 0 auto 180px;
+  padding: 0;
 }
 
-.about__column {
-  /* Левая колонка центрирует логотип */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* Левая колонка (логотип) */
 .about__column:first-child {
   display: flex;
-  /* align-items: center; */
-  justify-content: center;
-  padding-top: 35px;
+  justify-content: flex-start;
+  /* В Figma logo-column left: 47px, top: 35px (относительно about) */
+  padding-left: 47px;
+  padding-top: 35px; 
 }
 
+/* Правая колонка (текст) */
 .about__column:last-child {
-  align-items: flex-start;
+  display: flex;
   flex-direction: column;
-  padding-top: 35px; /* Выравниваем текст по одной линии с логотипом */
+  align-items: flex-start;
+  /* В Figma about-column top: 133px. Заголовок на top: 3px (133+3=136px) */
+  padding-top: 133px; 
 }
 
-/* Черный круг с белым логотипом */
 .about__logo {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 240px;
   height: 240px;
-  border-radius: 50%; /* Делает круг */
-  background-color: #000; /* Черный фон */
+  border-radius: 50%;
+  background-color: #000;
 }
 
 .about__logo-image {
-  width: 148px; /* Размер логотипа внутри круга */
+  width: 148px;
   height: 114px;
   object-fit: contain;
 }
 
 .about__title {
-  margin-top: 0;
+  margin-top: 3px; /* Из Figma top: 3px */
   margin-bottom: 47px;
+  font-family: 'Raleway', sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 47px;
   text-transform: uppercase;
-  text-align: left;
 }
 
 .about__text {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Расстояние между абзацами */
+  gap: 24px;
 }
 
 .about__text p {
   margin: 0;
+  font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 24px; /* Из Figma */
 }
 
-/* --- ФИНАЛЬНЫЙ ФИКС ПОДВАЛА --- */
+/* --- ПОДВАЛ --- */
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
+  /* В Figma: contacts left: 50px, menu center, socials right: 50px */
+  grid-template-columns: 1fr auto 1fr;
   align-items: start;
-  padding: 0 50px 50px 50px;
-
-  /* Убираем черный фон, оставляем как на макете (белый/прозрачный) */
+  height: 180px;
+  padding: 0 50px;
   background-color: transparent;
   color: #000;
 }
 
 .footer__address {
+  margin-top: 95px; /* В Figma top: 95px */
+  font-style: normal;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-style: normal;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
+  font-weight: 400;
   line-height: 24px;
 }
 
 .footer__menu {
-  justify-self: center; /* Меню по центру */
-  margin-top: 1px;
+  justify-self: center;
+  margin-top: 1px; /* В Figma top: 1px */
 }
 
 .footer__menu-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 10px;
   align-items: center;
 }
 
 .footer__menu-link {
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
+  font-weight: 400;
   line-height: 21px;
   text-decoration: none;
 }
@@ -389,12 +369,10 @@ ul {
 }
 
 .footer__social-list {
-  display: flex;
-  justify-self: end; /* Соцсети прижимаем влево от их колонки, как на макете */
-  gap: 48px;
-  list-style: none;
+  justify-self: end;
   margin-top: 1px;
-  padding: 0;
+  display: flex;
+  gap: 48px;
 }
 
 .footer__social-list-item {
@@ -402,7 +380,6 @@ ul {
   height: 48px;
 }
 
-/* Убираем инверсию цвета, так как фон белый */
 .footer .footer__social-icon {
   width: 100%;
   height: 100%;
