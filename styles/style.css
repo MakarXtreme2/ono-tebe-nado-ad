@@ -112,7 +112,11 @@ ul {
 
 /* Заголовок "Оно тебе надо" */
 .cover__title {
-  margin: 0; /* Сдвигаем заголовок чуть вниз */
+  width: 1000px;
+  margin-top: 115px; /* Сдвигаем заголовок чуть вниз */
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 100px; /* Огромный размер шрифта из макета */
   font-weight: 700;
   text-transform: uppercase; /* Все буквы заглавные */
@@ -271,8 +275,8 @@ ul {
 .about {
   display: grid;
   /* Левая колонка фиксированная (как карточка), правая занимает всё остальное */
-  grid-template-columns: 334px 1fr;
-  gap: 25px;
+  grid-template-columns: 312px 1fr;
+  /* gap: 72px; */
   width: 1052px;           /* Точная ширина из макета */
   margin: 0 auto 180px;    /* Центрируем и даем отступ снизу 180px до подвала */
   padding: 0; /* Большие отступы сверху и снизу */
@@ -286,7 +290,16 @@ ul {
 }
 
 .about__column:first-child {
-  align-items: center;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  padding-top: 35px;
+}
+
+.about__column:last-child {
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 35px; /* Выравниваем текст по одной линии с логотипом */
 }
 
 /* Черный круг с белым логотипом */
@@ -303,14 +316,17 @@ ul {
 .about__logo-image {
   width: 148px; /* Размер логотипа внутри круга */
   height: 114px;
+  object-fit: contain;
 }
 
 .about__title {
-  margin: 3px 0 47px 0;
+  margin-top: 0;
+  margin-bottom: 47px;
   font-size: 40px;
   font-weight: 700;
   line-height: 47px;
   text-transform: uppercase;
+  text-align: left;
 }
 
 .about__text {
@@ -331,15 +347,14 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
   align-items: start;
-  padding: 0 50px;
-  height: 180px;
+  padding: 0 50px 50px 50px;
+
   /* Убираем черный фон, оставляем как на макете (белый/прозрачный) */
   background-color: transparent;
   color: #000;
 }
 
 .footer__address {
-  margin-top: 95px;
   display: flex;
   flex-direction: column;
   gap: 5px;
