@@ -1,1 +1,354 @@
 /* место для вашего кода */
+/* Сброс браузерных стилей для ссылок и списков */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --- ШАПКА --- */
+.header {
+  display: grid;
+  /* Делим шапку на 3 колонки: меню (1fr), логотип (min-content), адрес (1fr) */
+  grid-template-columns: 1fr min-content 1fr;
+  align-items: center;
+  padding: 20px 50px; /* Отступы сверху/снизу и по бокам, как в макете */
+}
+
+/* Меню (левая часть) */
+.header__menu {
+  justify-self: start; /* Прижимаем меню к левому краю */
+}
+
+.header__links-list {
+  display: flex;
+  gap: 30px; /* Расстояние между пунктами меню */
+}
+
+.header__links-list-item {
+  /* Маркер-кружок между пунктами меню (кроме первого) */
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
+.header__links-list-item_no-bullit {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.header__link {
+  font-size: 18px;
+  text-transform: lowercase; /* или uppercase, смотри макет */
+}
+
+.header__link_active {
+  text-decoration: underline; /* или none, если активная ссылка без подчеркивания */
+}
+
+/* Логотип (центр) */
+.header__logo {
+  display: block;
+  width: 150px; /* Подгони под макет */
+}
+
+.header__logo-image {
+  width: 100%;
+  display: block;
+}
+
+/* Адрес (правая часть) */
+.header__address {
+  justify-self: end; /* Прижимаем адрес к правому краю */
+  max-width: 200px; /* Ограничиваем ширину */
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Чтобы ссылки не растягивались на всю ширину */
+  gap: 5px;
+  font-size: 18px;
+}
+
+.address__link {
+  font-weight: bold;
+}
+
+/* --- ОБЛОЖКА (СЕКЦИЯ COVER) --- */
+.cover {
+  position: relative; /* Нужно, чтобы оверлей позиционировался относительно этой секции */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Раздвигаем заголовок и описание по краям */
+  min-height: 757px; /* Высота обложки из макета. Можем использовать min-height, чтобы блок мог расти */
+  padding: 50px; /* Отступы внутри обложки */
+  
+  /* Подключаем фоновую картинку. Если путь не сработает, проверь папку images */
+  background-image: url('../images/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* Весь текст на обложке белый */
+}
+
+/* Полупрозрачный темный оверлей поверх картинки */
+.overlay {
+  position: absolute;
+  inset: 0; /* Растягиваем на весь родительский блок (top:0, right:0, bottom:0, left:0) */
+  background-color: rgba(0, 0, 0, 0.6); /* Черный цвет с прозрачностью 60% */
+  z-index: 1; /* Оверлей должен быть поверх картинки */
+}
+
+/* Чтобы текст не спрятался под оверлеем, поднимаем его z-index */
+.cover__title, 
+.cover__description {
+  position: relative;
+  z-index: 2;
+}
+
+/* Заголовок "Оно тебе надо" */
+.cover__title {
+  margin-top: 100px; /* Сдвигаем заголовок чуть вниз */
+  font-size: 100px; /* Огромный размер шрифта из макета */
+  font-weight: bold;
+  text-transform: uppercase; /* Все буквы заглавные */
+  letter-spacing: 0.15em; /* Расстояние между буквами */
+  line-height: 1.1;
+}
+
+/* Классы для выравнивания строк заголовка */
+.aligned-text {
+  display: block; /* Каждое слово на новой строке */
+}
+
+.aligned-text_left {
+  text-align: left;
+}
+
+.aligned-text_center {
+  text-align: center;
+  /* Если нужно сместить чуть левее/правее, можно использовать padding или margin */
+}
+
+.aligned-text_right {
+  text-align: right;
+}
+
+/* Описание (подзаголовок и кнопка) */
+.cover__description {
+  display: flex;
+  justify-content: space-between; /* Текст слева, кнопка справа */
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.cover__description-text {
+  margin: 0;
+  font-size: 22px;
+  text-transform: uppercase;
+  word-spacing: 15px; /* Расстояние между словами */
+}
+
+/* Кнопка "Сделать ставку" */
+.bet-button {
+  padding: 15px 30px;
+  border: 1px solid #fff; /* Белая рамка */
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  background-color: transparent; /* Прозрачный фон */
+  cursor: pointer;
+}
+
+.bet-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Легкий эффект при наведении */
+}
+
+/* --- СЕКЦИЯ ЛОТЫ --- */
+.lots {
+  padding: 50px; /* Отступы вокруг всей секции */
+}
+
+.lots__heading {
+  margin-bottom: 30px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+/* Сетка для карточек */
+.lots__card-list {
+  display: flex;
+  flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
+  gap: 25px; /* Расстояние между карточками */
+  margin-bottom: 30px;
+}
+
+.lots__card-list-item {
+  /* Рассчитываем ширину так, чтобы влезло 3 карточки (вычитаем gap) */
+  width: calc((100% - 50px) / 3); 
+  min-height: 450px; /* Минимальная высота карточки */
+}
+
+/* Ссылка внутри карточки должна занимать всю высоту */
+.card-link {
+  display: block;
+  height: 100%;
+}
+
+/* Сама карточка */
+.card {
+  position: relative; /* Чтобы оверлей позиционировался внутри карточки */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Текст разъезжается по краям */
+  height: 100%;
+  padding: 30px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Подключаем фоны для каждой из трех карточек */
+.card_type_film {
+  background-image: url('../images/card-lot-01.jpg');
+}
+
+.card_type_book {
+  background-image: url('../images/card-lot-02.jpg');
+}
+
+.card_type_picture {
+  background-image: url('../images/card-lot-03.jpg');
+}
+
+/* Чтобы текст не прятался под оверлеем */
+.card__title,
+.card__text {
+  position: relative;
+  z-index: 2;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: underline; /* Как в макете, заголовки подчеркнуты */
+}
+
+.card__text {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Ссылка "Посмотреть больше" */
+.lots__look-more-link {
+  display: inline-block;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+/* --- СЕКЦИЯ ОБ АУКЦИОНЕ --- */
+.about {
+  display: grid;
+  /* Левая колонка фиксированная (как карточка), правая занимает всё остальное */
+  grid-template-columns: 300px 1fr; 
+  gap: 50px;
+  padding: 100px 50px; /* Большие отступы сверху и снизу */
+}
+
+.about__column {
+  /* Левая колонка центрирует логотип */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Черный круг с белым логотипом */
+.about__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%; /* Делает круг */
+  background-color: #000; /* Черный фон */
+}
+
+.about__logo-image {
+  width: 140px; /* Размер логотипа внутри круга */
+  height: 140px;
+}
+
+.about__title {
+  margin-top: 100px; /* Выравниваем заголовок примерно по центру круга */
+  margin-bottom: 40px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Расстояние между абзацами */
+}
+
+.about__text p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* --- ФИНАЛЬНЫЙ ФИКС ПОДВАЛА --- */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
+  align-items: start;
+  padding: 50px 50px 50px;
+  /* Убираем черный фон, оставляем как на макете (белый/прозрачный) */
+  background-color: transparent; 
+  color: #000;
+}
+
+.footer__address {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.footer__menu {
+  justify-self: center; /* Меню по центру */
+}
+
+.footer__menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: flex-start;
+}
+
+.footer__social-list {
+  display: flex;
+  justify-self: start; /* Соцсети прижимаем влево от их колонки, как на макете */
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__social-list-item {
+  width: 48px;
+  height: 48px;
+}
+
+/* Убираем инверсию цвета, так как фон белый */
+.footer .footer__social-icon {
+  width: 48px !important;
+  height: 48px !important;
+  object-fit: contain;
+}
