@@ -71,6 +71,7 @@ ul {
   align-items: flex-start; /* Чтобы ссылки не растягивались на всю ширину */
   gap: 5px;
   font-size: 18px;
+  font-weight: normal;
 }
 
 .address__link {
@@ -187,7 +188,7 @@ ul {
 
 .lots__card-list-item {
   /* Рассчитываем ширину так, чтобы влезло 3 карточки (вычитаем gap) */
-  width: calc((100% - 50px) / 3); 
+  width: calc((100% - 50px) / 3);
   min-height: 450px; /* Минимальная высота карточки */
 }
 
@@ -204,7 +205,7 @@ ul {
   flex-direction: column;
   justify-content: space-between; /* Текст разъезжается по краям */
   height: 100%;
-  padding: 30px;
+  padding: 30px 20px;
   color: #fff;
   background-size: cover;
   background-position: center;
@@ -231,15 +232,17 @@ ul {
 }
 
 .card__title {
-  margin: 0;
-  font-size: 24px;
+  margin: 0 0 15px 0;
+  font-size: 22px;
+  font-weight: normal;
   text-transform: uppercase;
   text-decoration: underline; /* Как в макете, заголовки подчеркнуты */
 }
 
 .card__text {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 /* Ссылка "Посмотреть больше" */
@@ -253,7 +256,7 @@ ul {
 .about {
   display: grid;
   /* Левая колонка фиксированная (как карточка), правая занимает всё остальное */
-  grid-template-columns: 300px 1fr; 
+  grid-template-columns: 300px 1fr;
   gap: 50px;
   padding: 100px 50px; /* Большие отступы сверху и снизу */
 }
@@ -282,7 +285,7 @@ ul {
 }
 
 .about__title {
-  margin-top: 100px; /* Выравниваем заголовок примерно по центру круга */
+  margin-top: 0; /* Выравниваем заголовок примерно по центру круга */
   margin-bottom: 40px;
   font-size: 40px;
   text-transform: uppercase;
@@ -304,9 +307,9 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
   align-items: start;
-  padding: 50px 50px 50px;
+  padding: 50px;
   /* Убираем черный фон, оставляем как на макете (белый/прозрачный) */
-  background-color: transparent; 
+  background-color: transparent;
   color: #000;
 }
 
