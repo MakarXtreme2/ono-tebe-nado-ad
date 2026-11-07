@@ -18,7 +18,7 @@ ul {
   grid-template-columns: 1fr min-content 1fr;
   align-items: center;
   height: 293px;
-  padding: 0 24px; /* Отступы сверху/снизу и по бокам, как в макете */
+  padding: 0 50px; /* Отступы сверху/снизу и по бокам, как в макете */
 }
 
 /* Меню (левая часть) */
@@ -112,12 +112,12 @@ ul {
 
 /* Заголовок "Оно тебе надо" */
 .cover__title {
-  margin-top: 100px; /* Сдвигаем заголовок чуть вниз */
+  margin: 0; /* Сдвигаем заголовок чуть вниз */
   font-size: 100px; /* Огромный размер шрифта из макета */
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase; /* Все буквы заглавные */
-  letter-spacing: 0.15em; /* Расстояние между буквами */
-  line-height: 1.1;
+  letter-spacing: 0.3em; /* Расстояние между буквами */
+  line-height: 1.15;
 }
 
 /* Классы для выравнивания строк заголовка */
@@ -150,16 +150,20 @@ ul {
   margin: 0;
   font-size: 22px;
   text-transform: uppercase;
+  font-weight: 400;
   word-spacing: 15px; /* Расстояние между словами */
 }
 
 /* Кнопка "Сделать ставку" */
 .bet-button {
-  padding: 15px 30px;
+  width: 256px;
+  height: 51px;
+  padding: 0;
   border: 1px solid #fff; /* Белая рамка */
   color: #fff;
-  font-size: 18px;
+  font-size: 22px;
   text-transform: uppercase;
+  font-weight: 400;
   background-color: transparent; /* Прозрачный фон */
   cursor: pointer;
 }
@@ -171,13 +175,16 @@ ul {
 /* --- СЕКЦИЯ ЛОТЫ --- */
 .lots {
   width: 1052px;
-  margin: 0 auto 120px;
+  margin: 180px auto 120px;
   padding: 0; /* Отступы вокруг всей секции */
 }
 
 .lots__heading {
-  margin-bottom: 30px;
+  margin-top: 0;
+  margin-bottom: 27px;
   font-size: 40px;
+  font-weight: 700;
+  line-height: 47px;
   text-transform: uppercase;
 }
 
@@ -191,8 +198,8 @@ ul {
 
 .lots__card-list-item {
   /* Рассчитываем ширину так, чтобы влезло 3 карточки (вычитаем gap) */
-  width: calc((100% - 50px) / 3);
-  min-height: 450px; /* Минимальная высота карточки */
+  width: 334px;
+  min-height: 596px; /* Минимальная высота карточки */
 }
 
 /* Ссылка внутри карточки должна занимать всю высоту */
@@ -208,7 +215,7 @@ ul {
   flex-direction: column;
   justify-content: space-between; /* Текст разъезжается по краям */
   height: 100%;
-  padding: 30px 20px;
+  padding: 48px 40px;
   color: #fff;
   background-size: cover;
   background-position: center;
@@ -235,23 +242,28 @@ ul {
 }
 
 .card__title {
-  margin: 0 0 15px 0;
+  margin: 0;
   font-size: 22px;
-  font-weight: normal;
+  font-weight: 700;
+  line-height: 1.2;
   text-transform: uppercase;
   text-decoration: underline; /* Как в макете, заголовки подчеркнуты */
 }
 
 .card__text {
   margin: 0;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 400;
   line-height: 1.2;
 }
 
 /* Ссылка "Посмотреть больше" */
 .lots__look-more-link {
   display: inline-block;
+  margin-left: 40px;
   font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
   text-decoration: underline;
 }
 
@@ -259,8 +271,8 @@ ul {
 .about {
   display: grid;
   /* Левая колонка фиксированная (как карточка), правая занимает всё остальное */
-  grid-template-columns: 300px 1fr;
-  gap: 50px;
+  grid-template-columns: 334px 1fr;
+  gap: 25px;
   width: 1052px;           /* Точная ширина из макета */
   margin: 0 auto 180px;    /* Центрируем и даем отступ снизу 180px до подвала */
   padding: 0; /* Большие отступы сверху и снизу */
@@ -270,6 +282,10 @@ ul {
   /* Левая колонка центрирует логотип */
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.about__column:first-child {
   align-items: center;
 }
 
@@ -285,26 +301,29 @@ ul {
 }
 
 .about__logo-image {
-  width: 140px; /* Размер логотипа внутри круга */
-  height: 140px;
+  width: 148px; /* Размер логотипа внутри круга */
+  height: 114px;
 }
 
 .about__title {
-  margin-top: 20px; /* Выравниваем заголовок примерно по центру круга */
-  margin-bottom: 40px;
+  margin: 3px 0 47px 0;
   font-size: 40px;
+  font-weight: 700;
+  line-height: 47px;
   text-transform: uppercase;
 }
 
 .about__text {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Расстояние между абзацами */
+  gap: 24px; /* Расстояние между абзацами */
 }
 
 .about__text p {
+  margin: 0;
   font-size: 20px;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 /* --- ФИНАЛЬНЫЙ ФИКС ПОДВАЛА --- */
@@ -312,40 +331,54 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* 3 колонки */
   align-items: start;
-  padding: 50px;
+  padding: 0 50px;
+  height: 180px;
   /* Убираем черный фон, оставляем как на макете (белый/прозрачный) */
   background-color: transparent;
   color: #000;
 }
 
 .footer__address {
+  margin-top: 95px;
   display: flex;
   flex-direction: column;
   gap: 5px;
   font-style: normal;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .footer__menu {
   justify-self: center; /* Меню по центру */
+  margin-top: 1px;
 }
 
 .footer__menu-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
 }
 
+.footer__menu-link {
+  font-size: 18px;
+  line-height: 21px;
+  text-decoration: none;
+}
+
+.footer__menu-link_active {
+  text-decoration: underline;
+}
+
 .footer__social-list {
   display: flex;
-  justify-self: start; /* Соцсети прижимаем влево от их колонки, как на макете */
-  gap: 20px;
+  justify-self: end; /* Соцсети прижимаем влево от их колонки, как на макете */
+  gap: 48px;
   list-style: none;
-  margin: 0;
+  margin-top: 1px;
   padding: 0;
 }
 
@@ -356,7 +389,7 @@ ul {
 
 /* Убираем инверсию цвета, так как фон белый */
 .footer .footer__social-icon {
-  width: 48px !important;
-  height: 48px !important;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
