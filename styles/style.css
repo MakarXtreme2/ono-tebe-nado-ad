@@ -17,7 +17,8 @@ ul {
   /* Делим шапку на 3 колонки: меню (1fr), логотип (min-content), адрес (1fr) */
   grid-template-columns: 1fr min-content 1fr;
   align-items: center;
-  padding: 20px 50px; /* Отступы сверху/снизу и по бокам, как в макете */
+  height: 293px;
+  padding: 0 24px; /* Отступы сверху/снизу и по бокам, как в макете */
 }
 
 /* Меню (левая часть) */
@@ -169,7 +170,9 @@ ul {
 
 /* --- СЕКЦИЯ ЛОТЫ --- */
 .lots {
-  padding: 50px; /* Отступы вокруг всей секции */
+  width: 1052px;
+  margin: 0 auto 120px;
+  padding: 0; /* Отступы вокруг всей секции */
 }
 
 .lots__heading {
@@ -258,7 +261,9 @@ ul {
   /* Левая колонка фиксированная (как карточка), правая занимает всё остальное */
   grid-template-columns: 300px 1fr;
   gap: 50px;
-  padding: 100px 50px; /* Большие отступы сверху и снизу */
+  width: 1052px;           /* Точная ширина из макета */
+  margin: 0 auto 180px;    /* Центрируем и даем отступ снизу 180px до подвала */
+  padding: 0; /* Большие отступы сверху и снизу */
 }
 
 .about__column {
@@ -285,7 +290,7 @@ ul {
 }
 
 .about__title {
-  margin-top: 0; /* Выравниваем заголовок примерно по центру круга */
+  margin-top: 20px; /* Выравниваем заголовок примерно по центру круга */
   margin-bottom: 40px;
   font-size: 40px;
   text-transform: uppercase;
@@ -332,7 +337,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .footer__social-list {
